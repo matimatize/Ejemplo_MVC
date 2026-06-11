@@ -19,8 +19,10 @@ export class ProductView {
                 <td>${product.categoria}</td>
                 <td>${product.fecha_expiracion}</td>
                 <td>
-                    <button class="modificar-btn" data-id="${product.id}">Modificar</button>    
-                    <button class="eliminar-btn" data-id="${product.id}">Eliminar</button>
+                    <button class="btn-modif" data-id="${product.id}">Modificar</button>    
+                </td>
+                <td>
+                   <button class="btn-elim" data-id="${product.id}">Eliminar</button>
                 </td>
             `;
             tableBody.appendChild(row);
