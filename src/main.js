@@ -24,7 +24,7 @@ categorias.forEach((categoria) => {
 // Asignamos los eventos necesarios para el funcionamiento del formulario principal, el formulario de modificacion de productos y la tabla de productos
 const form = document.getElementById("formulario");
 const tabla = document.querySelector(".tabla");
-
+// El evento submit del formulario principal se encarga de agregar un nuevo producto al controlador y de actualizar la vista con los datos actuales. El evento click de la tabla se encarga de detectar si se hizo click en un botón de modificar o eliminar y de llamar a los métodos correspondientes de la vista para modificar o eliminar el producto.
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   const nombre = document.getElementById("producto").value;
@@ -37,20 +37,16 @@ form.addEventListener("submit", function (event) {
   form.reset();
   });
 
-
+// El evento click de la tabla se encarga de detectar si se hizo click en un botón de modificar o eliminar y de llamar a los métodos correspondientes de la vista para modificar o eliminar el producto.
 tabla.addEventListener("click", function (event) {
-  if (event.target.classList.contains("modificar-btn")) {
+  if (event.target.classList.contains("btn-modif")) {
     const id = parseInt(event.target.getAttribute("data-id"));
     view.modificarProduct(id);
-  } else if (event.target.classList.contains("eliminar-btn")) {
+  } else if (event.target.classList.contains("btn-elim")) {
     const id = parseInt(event.target.getAttribute("data-id"));
     view.eliminarProduct(id);
   }
-});  
-
-document.getElementById('cancelar').onclick = () => {
-   document.querySelector('dialog').close();
-}
+});
 
 
 
